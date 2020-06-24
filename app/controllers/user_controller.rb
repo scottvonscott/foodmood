@@ -1,4 +1,4 @@
-class UserController < Sintatra::Base
+class UserController < ApplicationController
 
     get '/signup' do
         erb :'users/new' 
@@ -7,10 +7,9 @@ class UserController < Sintatra::Base
     post '/signup' do
         user = User.new(params[:user])
         if user.save
-            sessionl[:user_id] = user.id
-            redirect to '/restaurants'
+            session[:user_id] = user.id
+            redirect to '/login'
         else
-            @error - user.errors.full_messages(" - ")
             erb :'users/new'
         end
     end
@@ -38,4 +37,3 @@ end
 
 
 
-end

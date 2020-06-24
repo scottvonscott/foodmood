@@ -12,6 +12,4 @@ require './app/controllers/application_controller'
 require_all 'app'
 
 
-use Rack::MethodOverride
-use UserController
-run ApplicationController
+
