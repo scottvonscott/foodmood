@@ -5,10 +5,11 @@ class UserController < ApplicationController
     end
 
     post '/signup' do
-        user = User.new(params[:user])
+        user = User.create(params[:user])
+        binding.pry
         if user.save
             session[:user_id] = user.id
-            redirect to '/login'
+            redirect '/login'
         else
             erb :'users/new'
         end
@@ -27,7 +28,7 @@ class UserController < ApplicationController
         user = User.find_by_username(params[:user][:username])
         if user && user.authenticate(params[:user][:password])
             session[:user_id] = user.id 
-            redirect to '/restaurants'
+            erb :'users/index'
         else
             redirect '/login'
         end
