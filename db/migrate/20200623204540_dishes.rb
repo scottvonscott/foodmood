@@ -4,5 +4,6 @@ class Dishes < ActiveRecord::Migration
       t.string :name
       t.references :restaurant_id
       t.references :cuisine_id
+    end
   end
 end

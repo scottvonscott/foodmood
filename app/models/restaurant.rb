@@ -3,6 +3,5 @@ class Restaurant < ActiveRecord::Base
     has_many :dishes
     has_many :cuisines, through: :dishes
     has_many :reviews
-    has_many :ratings, through: :reviews
     
 end
