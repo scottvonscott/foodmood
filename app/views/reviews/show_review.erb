@@ -1,0 +1,10 @@
+<h1><%=@review.title%></h1><br>
+<h3>Posted by <%= @review.user.username%></h3><br><br>
+<p><%=@review.description %></p>
+
+<p><a href="/reviews/<%=@review.id%>/edit">Edit Review </a></p>
+
+<form method="post" action="/reviews/<%=@review.id%>/delete">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Review">
+</form>

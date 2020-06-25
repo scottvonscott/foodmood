@@ -2,7 +2,10 @@
 
 <% @reviews.each do |review| %>
     <div>
-        <%= review.title%>
-        <%= review.description %>
+    <h3><a href="/reviews/<%=review.id%>"><%= review.title%></a></h3>
     </div>
     <% end %>
+
+
+  
+

@@ -9,10 +9,9 @@ end
 
 post '/reviews' do
     verify_logged_in
-      if params[:content] == ""
+      if params[:description] == ""
         redirect to "/reviews/new"
       else
-        binding.pry
         @review = current_user.reviews.build(title: params[:title], description: params[:description])
         if @review.save
           redirect to "/reviews/#{@review.id}"
@@ -30,19 +29,14 @@ end
 get '/reviews/:id' do
     verify_logged_in
         @review = Review.find_by_id(params[:id])
-        erb :'review/show_review'
-end
-
-post '/reviews/:id' do
-    verify_logged_in
-    
+        erb :'reviews/show_review'
 end
 
 get '/reviews/:id/edit' do
     verify_logged_in
         @review = Review.find_by_id(params[:id])
       if @review && @review.user == current_user
-        erb :'tweets/edit_review'
+        erb :'reviews/edit_review'
       else
         redirect to '/reviews'
       end
@@ -51,17 +45,17 @@ end
 patch '/reviews/:id/' do
     verify_logged_in
         if params[:content] == ""
-            redirect to "/tweets/#{params[:id]}/edit"
+            redirect to "/reviews/#{params[:id]}/edit"
           else
-            @tweet = Tweet.find_by_id(params[:id])
-            if @tweet && @tweet.user == current_user
-              if @tweet.update(content: params[:content])
-                redirect to "/tweets/#{@tweet.id}"
+            @review = Review.find_by_id(params[:id])
+            if @review && @review.user == current_user
+              if @review.update(content: params[:content])
+                redirect to "/reviews/#{@review.id}"
               else
-                redirect to "/tweets/#{@tweet.id}/edit"
+                redirect to "/reviews/#{@review.id}/edit"
               end
             else
-              redirect to '/tweets'
+              redirect to '/reviews'
             end
           end
       end
@@ -72,7 +66,7 @@ delete '/reviews/:id/delete' do
         if @review && @review.user == current_user
           @review.delete
         end
-        redirect to '/tweets'
+        redirect to '/reviews'
 end
 
 end
