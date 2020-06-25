@@ -3,6 +3,15 @@
 
 <p><a href="/restaurants/<%=@restaurant.id%>/edit">Edit Restaurant </a></p>
 
+<h2> Reviews </h2>
+
+<% @restaurant.reviews.each do |review| %>
+  <a href =/reviews/<%=review.id%>><%= review.title %></a>
+  <% end %>
+
+
+
+
 <form method="post" action="/restaurants/<%=@restaurant.id%>/delete">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete Restaurant">
