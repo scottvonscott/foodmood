@@ -42,14 +42,14 @@ get '/reviews/:id/edit' do
       end
 end
 
-patch '/reviews/:id/' do
+patch '/reviews/:id' do
     verify_logged_in
-        if params[:content] == ""
+        if params[:description] == ""
             redirect to "/reviews/#{params[:id]}/edit"
           else
             @review = Review.find_by_id(params[:id])
             if @review && @review.user == current_user
-              if @review.update(content: params[:content])
+              if @review.update(description: params[:description])
                 redirect to "/reviews/#{@review.id}"
               else
                 redirect to "/reviews/#{@review.id}/edit"
