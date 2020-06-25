@@ -8,4 +8,5 @@ use Rack::MethodOverride
 use UserController
 use ReviewController
 use RestaurantController
+use CityController
 run ApplicationController

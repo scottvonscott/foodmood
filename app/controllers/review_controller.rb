@@ -13,7 +13,8 @@ post '/reviews' do
         # put error here
         redirect to "/reviews/new"
       else
-        @restaurant = Restaurant.all.find_by(name: params[:restaurant])
+        @city = City.find_or_create_by(name: params[:city])
+        @restaurant = Restaurant.find_or_create_by(name: params[:restaurant], city: @city)
         @review = current_user.reviews.build(title: params[:title], description: params[:description], restaurant: @restaurant)
         if @review.save
           redirect to "/reviews/#{@review.id}"

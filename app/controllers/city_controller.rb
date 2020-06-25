@@ -1,8 +1,9 @@
 class CityController < ApplicationController
 
-    get '/city' do
+    get '/cities' do
         verify_logged_in
         @cities = City.all
+        binding.pry
         erb :'cities/index'
     end
 
