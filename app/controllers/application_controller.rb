@@ -24,6 +24,7 @@ class ApplicationController < Sinatra::Base
     def verify_logged_in
       if logged_in?
       else
+        # put error here
           redirect to "/login"
       end
   end

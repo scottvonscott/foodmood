@@ -10,12 +10,14 @@ end
 post '/reviews' do
     verify_logged_in
       if params[:description] == ""
+        # put error here
         redirect to "/reviews/new"
       else
         @review = current_user.reviews.build(title: params[:title], description: params[:description])
         if @review.save
           redirect to "/reviews/#{@review.id}"
         else
+          # put error here
           redirect to "/reviews/new"
         end
       end
@@ -38,6 +40,7 @@ get '/reviews/:id/edit' do
       if @review && @review.user == current_user
         erb :'reviews/edit_review'
       else
+        # put error here
         redirect to '/reviews'
       end
 end
@@ -46,6 +49,7 @@ patch '/reviews/:id' do
     verify_logged_in
         if params[:description] == ""
             redirect to "/reviews/#{params[:id]}/edit"
+            # put error here
           else
             @review = Review.find_by_id(params[:id])
             if @review && @review.user == current_user
@@ -53,9 +57,11 @@ patch '/reviews/:id' do
                 redirect to "/reviews/#{@review.id}"
               else
                 redirect to "/reviews/#{@review.id}/edit"
+                # put error here
               end
             else
               redirect to '/reviews'
+              # put error here
             end
           end
       end
@@ -67,6 +73,7 @@ delete '/reviews/:id/delete' do
           @review.delete
         end
         redirect to '/reviews'
+        # put error here
 end
 
 end
