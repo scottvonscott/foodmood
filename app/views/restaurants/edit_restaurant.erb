@@ -1,0 +1,13 @@
+<h2> Edit restaurant </h2>
+<label><%=@restaurant.name%></label>
+<form method="post" action="/restaurants/<%=@restaurant.id%>">
+  <input id="hidden" type="hidden" name="_method" value="PATCH">
+  <br><label> Name: </label>
+  <input type="text" name="name" value="<%= @restaurant.name %>" required><br>
+  <br><label> City: </label>
+  <input type="text" name="city" value="<%= @restaurant.city.name %>" required<br>
+
+  <input type="submit" value="submit">
+</form>
+
+<p><a href="/home">Back to Home</a></p>

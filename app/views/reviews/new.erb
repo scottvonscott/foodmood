@@ -1,11 +1,18 @@
 <h1> Write a new review!</h1>
 
 <form method="post" action="/reviews"
-<p>Give your review a title:</p>
-<p><input type="text" name="title" id="title" required</p><br>
-<p>Body:</p>
-<p><input type="text" name="description" id="description" required</p><br>
+<label>Restaurant</label>
+<input type="text" name="restaurant" id="restaurant">
+
+<label>Title:</label>
+<p><input type="text" name="title" id="title" </p><br>
+
+<label>Body:</label>
+<input type="text" name="description" id="description">
+
 <input type="submit" name="submit">
+
+
 </form>
 
 <p><a href="/home">Back to Home</a></p>

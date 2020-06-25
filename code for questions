@@ -1,0 +1,7 @@
+restuarant.name
+
+<select name="restaurant" size="10" multiple>
+    <%Restaurant.all.each do |restaurant| %>
+        <option value=<%="restaurant.name"%>><%=restaurant.name%></option>
+        <% end %>
+    </select>
