@@ -1,12 +1,6 @@
 class ReviewController < ApplicationController
 
-    def verify_logged_in
-        if logged_in?
-        else
-            redirect to "/login"
-        end
-    end
-
+    
 get '/reviews' do
     verify_logged_in
     @reviews = Review.all 
@@ -18,7 +12,8 @@ post '/reviews' do
       if params[:content] == ""
         redirect to "/reviews/new"
       else
-        @review = current_user.reviews.build(title: params[:title])
+        binding.pry
+        @review = current_user.reviews.build(title: params[:title], description: params[:description])
         if @review.save
           redirect to "/reviews/#{@review.id}"
         else

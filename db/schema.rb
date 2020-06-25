@@ -23,20 +23,20 @@ ActiveRecord::Schema.define(version: 20200623204549) do
 
   create_table "dishes", force: :cascade do |t|
     t.string  "name"
-    t.integer "restaurant_id_id"
-    t.integer "cuisine_id_id"
+    t.integer "restaurant_id"
+    t.integer "cuisine_id"
   end
 
   create_table "restaurants", force: :cascade do |t|
     t.string  "name"
-    t.integer "city_id_id"
+    t.integer "city_id"
   end
 
   create_table "reviews", force: :cascade do |t|
     t.string  "title"
     t.text    "description"
-    t.integer "user_id_id"
-    t.integer "restaurant_id_id"
+    t.integer "user_id"
+    t.integer "restaurant_id"
   end
 
   create_table "users", force: :cascade do |t|
