@@ -1,6 +1,5 @@
 <h1><%=@restaurant.name%></h1><br>
-<h3>Created by <%= @restaurant.user.username%></h3><br><br>
-<p><%=@restaurant.city %></p>
+<p><%=@restaurant.city.name %></p>
 
 <p><a href="/restaurants/<%=@restaurant.id%>/edit">Edit Restaurant </a></p>
 

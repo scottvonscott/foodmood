@@ -1,5 +1,8 @@
 <h1>All Reviews!</h1>
 
+<p><a href="/reviews/new">Create New Review</a></p>
+
+
 <% @reviews.each do |review| %>
     <div>
     <h3><a href="/reviews/<%=review.id%>"><%= review.title%></a></h3>
