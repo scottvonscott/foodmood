@@ -12,10 +12,10 @@ post '/restaurants' do
         # put error here
         redirect to "/restaurants/new"
     else
-        @city = City.find_or_create_by(name: params[:city])
-        @restaurant = Restaurant.create(name: params[:name], city: @city)
-        if @restaurant.save
-            redirect to "/restaurants/#{@restaurant.id}"
+        city = City.find_or_create_by(name: params[:city])
+        restaurant = Restaurant.create(name: params[:name], city: city)
+        if restaurant.save
+            redirect to "/restaurants/#{restaurant.id}"
         else
             # put error here
             redirect to "/restaurants/new"
@@ -23,8 +23,6 @@ post '/restaurants' do
     end
 end
 
-# THIS IS THE CODE I WANTED TO USE:
-# @restaurant = Restaurant.create(name: params[:name], city: @city.id)
 
 get '/restaurants/new' do
     verify_logged_in
@@ -49,12 +47,12 @@ patch '/restaurants/:id' do
             redirect to "/restaurants/#{params[:id]}/edit"
             # put error here
           else
-            @city = City.find_or_create_by(name: params[:city])
-            @restaurants = Restaurant.find_by_id(params[:id])
-              if @restaurants.update(name: params[:name], city: @city )
-                redirect to "/restaurants/#{@restaurants.id}"
+            city = City.find_or_create_by(name: params[:city])
+            restaurants = Restaurant.find_by_id(params[:id])
+              if restaurants.update(name: params[:name], city: city )
+                redirect to "/restaurants/#{restaurants.id}"
               else
-                redirect to "/restaurants/#{@restaurants.id}/edit"
+                redirect to "/restaurants/#{restaurants.id}/edit"
                 # put error here
               end
           end
@@ -62,8 +60,8 @@ patch '/restaurants/:id' do
 
       delete '/restaurants/:id/delete' do
         verify_logged_in
-            @restaurant = Restaurant.find_by_id(params[:id])
-              @restaurant.delete
+            restaurant = Restaurant.find_by_id(params[:id])
+              restaurant.delete
 
             # put some kind of check for mad deleting
     end

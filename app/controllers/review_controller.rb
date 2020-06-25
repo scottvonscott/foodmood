@@ -13,11 +13,11 @@ post '/reviews' do
         # put error here
         redirect to "/reviews/new"
       else
-        @city = City.find_or_create_by(name: params[:city])
-        @restaurant = Restaurant.find_or_create_by(name: params[:restaurant], city: @city)
-        @review = current_user.reviews.build(title: params[:title], description: params[:description], restaurant: @restaurant)
-        if @review.save
-          redirect to "/reviews/#{@review.id}"
+        city = City.find_or_create_by(name: params[:city])
+        restaurant = Restaurant.find_or_create_by(name: params[:restaurant], city: city)
+        review = current_user.reviews.build(title: params[:title], description: params[:description], restaurant: restaurant)
+        if review.save
+          redirect to "/reviews/#{review.id}"
         else
           # put error here
           redirect to "/reviews/new"
@@ -53,12 +53,12 @@ patch '/reviews/:id' do
             redirect to "/reviews/#{params[:id]}/edit"
             # put error here
           else
-            @review = Review.find_by_id(params[:id])
-            if @review && @review.user == current_user
-              if @review.update(description: params[:description])
-                redirect to "/reviews/#{@review.id}"
+            review = Review.find_by_id(params[:id])
+            if review && review.user == current_user
+              if review.update(description: params[:description])
+                redirect to "/reviews/#{review.id}"
               else
-                redirect to "/reviews/#{@review.id}/edit"
+                redirect to "/reviews/#{review.id}/edit"
                 # put error here
               end
             else
@@ -70,9 +70,9 @@ patch '/reviews/:id' do
 
 delete '/reviews/:id/delete' do
     verify_logged_in
-        @review = Review.find_by_id(params[:id])
-        if @review && @review.user == current_user
-          @review.delete
+        review = Review.find_by_id(params[:id])
+        if review && review.user == current_user
+          review.delete
         end
         redirect to '/reviews'
         # put error here

@@ -27,7 +27,7 @@ class ApplicationController < Sinatra::Base
         # put error here
           redirect to "/login"
       end
-  end
+    end
 
   end
 
