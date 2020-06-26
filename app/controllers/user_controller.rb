@@ -16,7 +16,7 @@ class UserController < ApplicationController
 
     get '/logout' do
         session.clear
-        redirect to '/login'
+        redirect to '/'
     end
 
     get '/login' do
@@ -28,11 +28,12 @@ class UserController < ApplicationController
         erb :'users/index'
     end
 
+
     post '/login' do
         user = User.find_by_username(params[:user][:username])
         if user && user.authenticate(params[:user][:password])
             session[:user_id] = user.id 
-            erb :'users/index'
+            redirect '/home'
         else
             redirect '/login'
         end

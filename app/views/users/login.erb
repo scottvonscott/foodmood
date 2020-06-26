@@ -1,8 +1,14 @@
 <h1>Login Deets</h1><br>
 <h2></h2>
 
+<% if logged_in?%>
+You're already logged in!
+
+
+<% else %>
 <form method="post" action='/login'>
     Username: <input type="text" name="user[username]" required><br>
     Password: <input type="password" name="user[password" required><br>
     <input type="submit" value="login">
 </form>
+ <% end%>

@@ -8,9 +8,9 @@
 <form method="post" action="/reviews/<%=@review.id%>">
   <input id="hidden" type="hidden" name="_method" value="PATCH">
   <br><label> Description: </label><br>
-  <textarea name="description" rows="10" cols="80" value="<%= @review.description %>" required></textarea><br>
+  <textarea name="description" rows="10" cols="80" required><%= @review.description %></textarea><br>
   <input type="submit" value="submit">
 </form>
 <br>
 <h2></h2>
-<p><a href="/home">Back to Home</a></p>
+<h4><a href="/home">Back to Home</a></h4>
