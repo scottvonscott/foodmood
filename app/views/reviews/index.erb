@@ -1,15 +1,16 @@
-<h1>All Reviews!</h1>
+<h1>All Reviews!</h1><br>
 
 <p><a href="/reviews/new">Create New Review</a></p>
 
-
+<h2></h2>
 <% @reviews.each do |review| %>
     <div>
-    <h3><a href="/reviews/<%=review.id%>"><%= review.title%></a></h3>
+    <h3><a href="/reviews/<%=review.id%>"><%=review.restaurant.name%> - "<%= review.title%>" - posted by <%= review.user.username%></a></h3>
     </div>
-    <% end %>
+    <% end %><br>
 
 
   
+    <h2></h2>
 
     <p><a href="/home">Back to Home</a></p>

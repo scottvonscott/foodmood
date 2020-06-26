@@ -1,22 +1,24 @@
-<h1><%=@restaurant.name%></h1><br>
+<h1><%=@restaurant.name%></h1>
+
 <p><%=@restaurant.city.name %></p>
 
 <p><a href="/restaurants/<%=@restaurant.id%>/edit">Edit Restaurant </a></p>
+<h2></h2>
+<h3> Reviews </h3></br>
 
-<h2> Reviews </h2>
 
 <% @restaurant.reviews.each do |review| %>
-  <a href =/reviews/<%=review.id%>><%= review.title %></a>
+  <a href =/reviews/<%=review.id%>><%= review.title %> - by <%= review.user.username%></a>
   <% end %>
 
 
-
-
+<br><br>
+<h2></h2>
 <form method="post" action="/restaurants/<%=@restaurant.id%>/delete">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete Restaurant">
-</form>
+</form><br>
 
-<p><a href="/restaurants">Back to All Restaurants</a></p><br>
+<p><a href="/restaurants">Back to All Restaurants</a></p>
 
 <p><a href="/home">Back to Home</a></p>

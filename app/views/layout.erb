@@ -18,12 +18,13 @@
 
 
         <%= yield %>
-        <% if logged_in?%>
-        <br><br><br><br><br><br><br><p><a href="/logout">Log Out</a></p>
-        <% else %>
-        <% end %>
+       
 
       <footer class="branding">
+      <% if logged_in?%>
+      <a href="/logout">Log Out</a></p>
+      <% else %>
+      <% end %>
         <small>&copy; 2020 <strong>Foodmood</strong></small>
       </footer>
     </div>

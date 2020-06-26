@@ -2,7 +2,7 @@
 
 <p><a href="/cities/<%=@city.id%>/edit">Edit City </a></p>
 
-<h2> Restaurants </h2>
+<h3> Restaurants</h3>
 
 <% @city.restaurants.each do |restaurant| %>
   <a href =/restaurants/<%=restaurant.id%>><%= restaurant.name %></a>
@@ -10,10 +10,10 @@
 
 
 
-
+<h2></h2>
 <form method="post" action="/cities/<%=@city.id%>/delete">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete Restaurant">
+  <input type="submit" value="Delete City">
 </form>
 
 <p><a href="/cities">Back to All Restaurants</a></p><br>

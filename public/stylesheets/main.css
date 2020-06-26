@@ -13,15 +13,16 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: lightblue;
+    background-image: url("https://trgrestaurantconsulting.com/wp-content/uploads/2018/04/Restaurant-feasibility-study-TRG-Restaurant-Consultant.jpg");
+    background-color:#359EC4;
     color: #333;
-    font-family: Sans-Serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     line-height: 18px;
   }
 
   .wrapper {
-    background: #fff;
-    -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
+    background: rgb(216, 49, 49);
+    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.925);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
     box-shadow: 0 0 10px rgba(0,0,0,.3);
     margin: 16px auto;
