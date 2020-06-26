@@ -37,7 +37,7 @@ end
 get '/cities/:id/edit' do
     verify_logged_in
         @city = City.find_by_id(params[:id])
-        erb :'reviews/edit_review'
+        erb :'cities/edit_city'
 # Edit permission?
 end
 

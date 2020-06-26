@@ -7,11 +7,7 @@
 <p><%=@review.description %></p><br><br>
 <h2></h2>
 
-<h4><a href="/reviews/<%=@review.id%>/edit">Edit Review </a>
-<form method="post" action="/reviews/<%=@review.id%>/delete">
-  <input id="hidden" type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete Review">
-</form></h4>
+<h4><a href="/reviews/<%=@review.id%>/edit">Edit Review </a></h4>
 <h4><a href="/reviews">Back to Reviews</a> - <a href="/home">Back to Home</a></p></h4>
 
 

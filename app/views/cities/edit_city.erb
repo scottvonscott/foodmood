@@ -1,1 +1,19 @@
-# <a href="/home">Back to Home</a></p>
+<h1> Edit City </h1><br>
+  <form method="post" action="/cities/<%=@city.id%>/delete">
+    <input id="hidden" type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete City">
+  </form>
+<h2></h2>
+<h3><%=@city.name%></h3>
+<form method="post" action="/cities/<%=@city.id%>">
+  <input id="hidden" type="hidden" name="_method" value="PATCH">
+  <br><label> Name: </label>
+  <input type="text" name="name" value="<%= @city.name %>" required><br>
+
+  <input type="submit" value="submit">
+</form><br>
+<h2></h2>
+<p><a href="/cities">Back to Cities</a></p>
+
+
+<p><a href="/home">Back to Home</a></p>
