@@ -3,6 +3,10 @@
 <p><%=@restaurant.city.name %></p>
 
 <p><a href="/restaurants/<%=@restaurant.id%>/edit">Edit Restaurant </a></p>
+<form method="post" action="/restaurants/<%=@restaurant.id%>/delete">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Restaurant">
+</form><br>
 <h2></h2>
 <h3> Reviews </h3></br>
 
@@ -14,11 +18,6 @@
 
 <br><br>
 <h2></h2>
-<form method="post" action="/restaurants/<%=@restaurant.id%>/delete">
-  <input id="hidden" type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete Restaurant">
-</form><br>
-
-<p><a href="/restaurants">Back to All Restaurants</a></p>
+<p><a href="/restaurants">Back to Restaurants</a></p>
 
 <p><a href="/home">Back to Home</a></p>
