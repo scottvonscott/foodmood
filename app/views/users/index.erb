@@ -1,4 +1,4 @@
-<h1>Hey <%=current_user.username%>! Hope you're hungry!</h1>
+<h1>Hey <%=current_user.username.upcase%>! Hope you're hungry!</h1>
 
 <h2>Choose from the options below</h2>
 
@@ -7,11 +7,3 @@
 <p><a href="/restaurants">Restaurants</a></p>
 
 <p><a href="/cities">Cities</a></p>
-
-#This page should have:
-# List of your reviews
-# Create Review
-# List of restaurants
-#     by city
-#     by cuisine
-#  Create restaurant

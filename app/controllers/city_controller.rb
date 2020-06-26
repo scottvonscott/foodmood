@@ -6,10 +6,10 @@ class CityController < ApplicationController
         erb :'cities/index'
     end
 
-    get '/cities/new' do
-        verify_logged_in
-        erb :'cities/new'
-    end
+    # get '/cities/new' do
+    #     verify_logged_in
+    #     erb :'cities/new'
+    # end
 
     # post '/cities' do
     #     verify_logged_in
@@ -26,4 +26,27 @@ class CityController < ApplicationController
     #         end
     #       end
     #   end
+
+
+get '/cities/:id' do
+    verify_logged_in
+        @city = City.find_by_id(params[:id])
+        erb :'cities/show_city'
+end
+
+get '/cities/:id/edit' do
+    verify_logged_in
+        @city = City.find_by_id(params[:id])
+        erb :'reviews/edit_review'
+# Edit permission?
+end
+
+delete '/cities/:id/delete' do
+    verify_logged_in
+        city = City.find_by_id(params[:id])
+          city.delete
+
+        # put some kind of check for mad deleting
+end
+
 end

@@ -1,7 +1,6 @@
-<h1> Review of: <%=@review.restaurant.name%></h1>
+<h1> Review of: <a href="/restaurants/<%=@review.restaurant.id%>"><%=@review.restaurant.name%></a></h1>
 
-<h2><%=@review.title%></h1><b2>
-<h3>Posted by <%= @review.user.username%></h3><br><br>
+<h2><%=@review.title%> - Posted by <%= @review.user.username%></h2><br>
 <p><%=@review.description %></p>
 
 <p><a href="/reviews/<%=@review.id%>/edit">Edit Review </a></p>
@@ -11,6 +10,6 @@
   <input type="submit" value="Delete Review">
 </form>
 
-<p><a href="/reviews">Back to All Reviews</a></p><br>
+<p><a href="/reviews">Back to All Reviews</a></p>
 
 <p><a href="/home">Back to Home</a></p>
