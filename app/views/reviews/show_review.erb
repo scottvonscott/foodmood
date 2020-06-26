@@ -1,17 +1,19 @@
-<h1><a href="/restaurants/<%=@review.restaurant.id%>"><%=@review.restaurant.name%></a> Review:</h1><br>
-<p><a href="/reviews/<%=@review.id%>/edit">Edit Review </a>
-# center the delete button
+
+<h1>"<%=@review.title%>"</h1>
+<h4>Review of <a href="/restaurants/<%=@review.restaurant.id%>"><%=@review.restaurant.name%></a></h4><br>
+
+<h2></h2>
+<p>posted by <%= @review.user.username%></p><br>
+<p><%=@review.description %></p><br><br>
+<h2></h2>
+
+<h4><a href="/reviews/<%=@review.id%>/edit">Edit Review </a>
 <form method="post" action="/reviews/<%=@review.id%>/delete">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete Review">
-</form></p>
-<h2></h2>
-<h3>"<%=@review.title%>" - posted by <%= @review.user.username%></h3><br>
-<p><%=@review.description %></p>
+</form></h4>
+<h4><a href="/reviews">Back to Reviews</a> - <a href="/home">Back to Home</a></p></h4>
 
 
 
-<h2></h2>
 
-<p><a href="/reviews">Back to Reviews</a><br><br>
-<a href="/home">Back to Home</a></p>
