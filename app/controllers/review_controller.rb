@@ -32,13 +32,13 @@ end
 
 get '/reviews/:id' do
     verify_logged_in
-        @review = Review.find_by_id(params[:id])
+        @review = Review.find(params[:id])
         erb :'reviews/show_review'
 end
 
 get '/reviews/:id/edit' do
     verify_logged_in
-        @review = Review.find_by_id(params[:id])
+        @review = Review.find(params[:id])
       if @review && @review.user == current_user
         erb :'reviews/edit_review'
       else
@@ -70,7 +70,7 @@ patch '/reviews/:id' do
 
 delete '/reviews/:id/delete' do
     verify_logged_in
-        review = Review.find_by_id(params[:id])
+        review = Review.find(params[:id])
         if review && review.user == current_user
           review.delete
         end

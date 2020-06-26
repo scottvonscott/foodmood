@@ -31,13 +31,13 @@ end
 
 get '/restaurants/:id' do
     verify_logged_in
-        @restaurant = Restaurant.find_by_id(params[:id])
+        @restaurant = Restaurant.find(params[:id])
         erb :'restaurants/show_restaurant'
 end
 
 get '/restaurants/:id/edit' do
     verify_logged_in
-    @restaurant = Restaurant.find_by_id(params[:id])
+    @restaurant = Restaurant.find(params[:id])
     erb :'restaurants/edit_restaurant'
 end
 
@@ -60,7 +60,7 @@ patch '/restaurants/:id' do
 
       delete '/restaurants/:id/delete' do
         verify_logged_in
-            restaurant = Restaurant.find_by_id(params[:id])
+            restaurant = Restaurant.find(params[:id])
               restaurant.delete
 
             # put some kind of check for mad deleting

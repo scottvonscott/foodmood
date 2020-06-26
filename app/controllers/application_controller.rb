@@ -6,7 +6,8 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     enable :sessions
     set :session_secret, "super_secret_session"
-    set :show_exceptions, false
+    set :show_exceptions, true
+    # change at the end to false
   end
 
   not_found do
@@ -18,9 +19,9 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
-  # error ActiveRecord::RecordNotFound do
-  #   redirect to "/"
-  # end
+  error ActiveRecord::RecordNotFound do
+    erb :error
+  end
 
   helpers do
     def logged_in?

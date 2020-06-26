@@ -30,20 +30,20 @@ class CityController < ApplicationController
 
 get '/cities/:id' do
     verify_logged_in
-        @city = City.find_by_id(params[:id])
+        @city = City.find(params[:id])
         erb :'cities/show_city'
 end
 
 get '/cities/:id/edit' do
     verify_logged_in
-        @city = City.find_by_id(params[:id])
+        @city = City.find(params[:id])
         erb :'cities/edit_city'
 # Edit permission?
 end
 
 delete '/cities/:id/delete' do
     verify_logged_in
-        city = City.find_by_id(params[:id])
+        city = City.find(params[:id])
           city.delete
 
         # put some kind of check for mad deleting
