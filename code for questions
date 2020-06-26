@@ -10,3 +10,6 @@ restuarant.name
 
         background-image: url("https://trgrestaurantconsulting.com/wp-content/uploads/2018/04/Restaurant-feasibility-study-TRG-Restaurant-Consultant.jpg")
     background-color:#359EC4;
+
+    line 14 of layout
+        <link rel="stylesheet" href="/stylesheets/main.css" />

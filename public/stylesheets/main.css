@@ -21,7 +21,7 @@
   }
 
   .wrapper {
-    background: rgb(216, 49, 49);
+    background: rgb(216, 247, 255);
     -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.925);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
     box-shadow: 0 0 10px rgba(0,0,0,.3);
@@ -36,8 +36,17 @@
     line-height: 54px;
   }
 
+  a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: initial;
+  }
+
   h2 {
-    border-bottom: 2px solid #ccc;
+    border-bottom: 2px solid rgb(146, 103, 51);
     font-size: 24px;
     line-height: 36px;
     margin-bottom: 16px;
@@ -78,7 +87,7 @@
   }
 
   footer.branding {
-    border-top: 2px solid #ccc;
+    border-top: 2px solid rgb(146, 103, 51);
     margin-top: 20px;
     padding-top: 20px;
   }
