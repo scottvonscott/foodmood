@@ -57,6 +57,12 @@ patch '/restaurants/:id' do
               end
           end
       end
+      
+get '/restaurants/:id/delete_confirm' do
+    verify_logged_in
+    @restaurant = Restaurant.find(params[:id])
+    erb :'restaurants/delete_restaurant'
+end
 
       delete '/restaurants/:id/delete' do
         verify_logged_in

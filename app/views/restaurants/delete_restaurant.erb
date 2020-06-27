@@ -1,0 +1,10 @@
+<h1> Delete Restaurant?</h1><br>
+<h4> Back to <a href="/restaurants/<%=@restaurant.id%>"><%= @restaurant.name%></a></h4><br>
+<h2></h2>
+<h4> Are you sure?</h4><br>
+<h4> <form method="post" action="/restaurants/<%=@restaurant.id%>/delete">
+<input id="hidden" type="hidden" name="_method" value="DELETE">
+<input type="submit" value="Delete Restaurant">
+</form> </h4><br>
+<h2></h2>
+<h4><a href="/restaurants">Back to Restaurants</a> - <a href="/home">Back to Home</a></h4>
