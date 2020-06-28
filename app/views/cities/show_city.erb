@@ -7,7 +7,7 @@
     No restuarants have been added.
   <% else %>
       <% @city.restaurants.each do |restaurant| %>
-        <a href =/restaurants/<%=restaurant.id%>><%= restaurant.name %></a>
+        <a href =/restaurants/<%=restaurant.id%>><%= restaurant.name %></a><br>
         <% end %>
   <% end %>
   
@@ -15,5 +15,6 @@
 <br><br>
 <h2></h2>
 
-<h4><a href="/cities/<%=@city.id%>/edit">Edit City </a> - <a href="/cities/<%=@city.id%>/delete_confirm">Delete City</a></h4>
+<h4><a href="/cities/<%=@city.id%>/edit">Edit City </a> - <a href="/cities/<%=@city.id%>/delete_confirm">Delete City</a></h4><br>
+<h2></h2>
 <h4><a href="/cities">Back to Cities</a> - <a href="/home">Back to Home</a></h4>

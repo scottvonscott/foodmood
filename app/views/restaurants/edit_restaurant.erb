@@ -1,7 +1,7 @@
 <h1> Edit Restaurant </h1><br>
+<h4><%=@restaurant.name%></h4><br>
 
 <h2></h2>
-<h3><%=@restaurant.name%></h3>
 <form method="post" action="/restaurants/<%=@restaurant.id%>">
   <input id="hidden" type="hidden" name="_method" value="PATCH">
   <br><label> Name: </label>

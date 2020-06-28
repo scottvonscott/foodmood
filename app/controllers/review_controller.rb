@@ -28,7 +28,9 @@ post '/reviews' do
 
 get '/reviews/new' do
     verify_logged_in
-    @cuisines = Cuisine.all
+    @cuisines = Cuisine.all.sort_by do |cuisine|
+      cuisine.name
+    end
         erb :'reviews/new'
 end
 
@@ -57,7 +59,7 @@ patch '/reviews/:id' do
           else
             review = Review.find_by_id(params[:id])
             if review && review.user == current_user
-              if review.update(description: params[:description])
+              if review.update(description: params[:description], title: params[:title])
                 redirect to "/reviews/#{review.id}"
               else
                 redirect to "/reviews/#{review.id}/edit"
