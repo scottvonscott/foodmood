@@ -2,21 +2,22 @@
 <h2></h2>
 
 <form method="post" action="/reviews">
-<label>Restaurant:</label><br>
+<h3>Restaurant:</h3>
 <input type="text" name="restaurant" id="restaurant"><br>
 
-<label>Restaurant City:</label><br>
+<h3>Restaurant City:</h3>
 <input type="text" name="city" id="city" required><br>
 
-<label>Cuisine</label>
+<h3>Cuisine:</h3>
 <% @cuisines.each do |cuisine| %>
-<input type="radio" name="cuisine" value="<%= cuisine.name %>"</input><br>
+<input type="radio" name="cuisine" value="<%= cuisine.name %>"></input>
+<label for="cuisine"><%= cuisine.name %></label><br>
 <% end %><br>
 
-<label>Title:</label><br>
+<h3>Title:</h3>
 <input type="text" name="title" id="title"><br>
 
-<label>Body:</label><br>
+<h3>Body:</h3>
 <textarea name="description" rows="10" cols="80" id="description"></textarea><br>
 
 <input type="submit" name="submit">
@@ -25,4 +26,4 @@
 </form>
 <br>
 <h2></h2>
-<p><a href="/home">Back to Home</a></p>
+<h4><a href="/home">Back to Home</a></h4>

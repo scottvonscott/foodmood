@@ -7,29 +7,6 @@ class CityController < ApplicationController
     end
 
 
-# OPTIONAL FUNCTIONALITY
-    # get '/cities/new' do
-    #     verify_logged_in
-    #     erb :'cities/new'
-    # end
-
-    # post '/cities' do
-    #     verify_logged_in
-    #       if params[:name] == ""
-    #         # put error here
-    #         redirect to "/cities/new"
-    #       else
-    #         @city = City.create(name: params[:name])
-    #         if @city.save
-    #           redirect to "/cities/#{@city.id}"
-    #         else
-    #           # put error here
-    #           redirect to "/cities/new"
-    #         end
-    #       end
-    #   end
-
-
 get '/cities/:id' do
     verify_logged_in
         @city = City.find(params[:id])
@@ -54,8 +31,6 @@ delete '/cities/:id/delete' do
         city = City.find(params[:id])
           city.delete
           redirect to '/cities'
-
-        # put some kind of check for mad deleting
 end
 
 end
