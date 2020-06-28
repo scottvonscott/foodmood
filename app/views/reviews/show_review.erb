@@ -3,7 +3,7 @@
 <h4>Review of <a href="/restaurants/<%=@review.restaurant.id%>"><%=@review.restaurant.name%></a></h4><br>
 
 <h2></h2>
-<p>- posted by <%= @review.user.username%></p><br>
+<p>- Posted by <%= @review.user.username%></p><br>
 <p><%=@review.description %></p><br><br>
 <h2></h2>
 <h4><a href="/reviews/<%=@review.id%>/edit">Edit Review </a> - <a href="/reviews/<%=@review.id%>/delete_confirm">Delete Review</a></h4><br>

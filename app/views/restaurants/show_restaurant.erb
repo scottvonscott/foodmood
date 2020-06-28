@@ -7,7 +7,7 @@
 <h3> Reviews </h3></br>
 
 <% @restaurant.reviews.each do |review| %>
-  <a href =/reviews/<%=review.id%>><%= review.title %> - by <%= review.user.username%></a>
+  <a href =/reviews/<%=review.id%>><%= review.title %> - Posted by <%= review.user.username%></a>
   <% end %>
 
   

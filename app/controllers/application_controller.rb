@@ -6,17 +6,17 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     enable :sessions
     set :session_secret, ENV['SUPER_DUPER_SECRET_SESSION']
-    set :show_exceptions, true
+    set :show_exceptions, false
     # change at the end to false
+  end
+
+  get "/" do
+    erb :index
   end
 
   not_found do
     status 404
     erb :error
-  end
-
-  get "/" do
-    erb :index
   end
 
   error ActiveRecord::RecordNotFound do
