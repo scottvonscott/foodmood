@@ -1,0 +1,14 @@
+<h1>Cuisines</h1>
+
+<br>
+<h2></h2>
+
+<% @cuisines.each do |cuisine| %>
+    <div>
+    <h3><a href="/cuisines/<%=cuisine.id%>"><%= cuisine.name%></a></h3>
+    </div>
+    <% end %>
+
+<br>
+<h2></h2>
+<h4><a href="/home">Back to Home</a></h4>

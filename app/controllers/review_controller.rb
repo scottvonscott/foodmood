@@ -9,6 +9,7 @@ end
 
 post '/reviews' do
     verify_logged_in
+
       if params[:description] == ""
         # put error here
         redirect to "/reviews/new"
@@ -26,7 +27,9 @@ post '/reviews' do
   end
 
 get '/reviews/new' do
+  binding.pry
     verify_logged_in
+    @cuisines = Cuisine.all
         erb :'reviews/new'
 end
 

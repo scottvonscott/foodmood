@@ -8,6 +8,11 @@
 <label>Restaurant City:</label><br>
 <input type="text" name="city" id="city" required><br>
 
+<label>Cuisine</label>
+<% @cuisines.each do |cuisine| %>
+<input type="radio" name="cuisine" value="<%= cuisine.name %>"</input><br>
+<% end %><br>
+
 <label>Title:</label><br>
 <input type="text" name="title" id="title"><br>
 

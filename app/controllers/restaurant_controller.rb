@@ -24,9 +24,10 @@ patch '/restaurants/:id' do
             redirect to "/restaurants/#{params[:id]}/edit"
             # put error here
           else
+            cuisine = Cuisine.find_or_create_by(name: params[:cuisine])
             city = City.find_or_create_by(name: params[:city])
             restaurants = Restaurant.find_by_id(params[:id])
-              if restaurants.update(name: params[:name], city: city )
+              if restaurants.update(name: params[:name], city: city, cuisine: cuisine)
                 redirect to "/restaurants/#{restaurants.id}"
               else
                 redirect to "/restaurants/#{restaurants.id}/edit"

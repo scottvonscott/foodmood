@@ -1,0 +1,23 @@
+<h1><%=@cuisine.name%></h1><br>
+
+<h2></h2>
+
+
+
+<h3> Restaurants</h3>
+  <% if @cuisine.restaurants == [] %>
+    No restuarants have been added.
+  <% else %>
+      <% @cuisine.restaurants.each do |restaurant| %>
+        <a href =/restaurants/<%=restaurant.id%>><%= restaurant.name %></a>
+        <% end %>
+  <% end %>
+  
+<br><br>
+<h2></h2>
+
+
+
+<h4><a href="/cuisines/<%=@cuisine.id%>/edit">Edit Cuisine </a> - <a href="/cuisines/<%=@cuisine.id%>/delete_confirm">Delete Cuisine</a></h4>
+<br>
+<h4><a href="/cuisines">Back to Cuisines</a> - <a href="/home">Back to Home</a></h4>
