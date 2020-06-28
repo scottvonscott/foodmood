@@ -5,7 +5,7 @@ class ApplicationController < Sinatra::Base
   configure do
     set :views, 'app/views'
     enable :sessions
-    set :session_secret, "super_secret_session"
+    set :session_secret, ENV['SUPER_DUPER_SECRET_SESSION']
     set :show_exceptions, true
     # change at the end to false
   end

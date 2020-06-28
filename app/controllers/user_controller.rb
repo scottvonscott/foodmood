@@ -25,6 +25,7 @@ class UserController < ApplicationController
 
     get '/home' do
         verify_logged_in
+        binding.pry
         erb :'users/index'
     end
 
