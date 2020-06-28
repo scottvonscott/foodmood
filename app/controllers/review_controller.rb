@@ -9,7 +9,7 @@ class ReviewController < ApplicationController
 
   post '/reviews' do
       verify_logged_in
-        if params.include?([:cuisine]) && params[:description] != ""
+        if params.include?("cuisine") && params[:description] != ""
             cuisine = Cuisine.find_by(name: params[:cuisine])
             city = City.find_or_create_by(name: params[:city])
             restaurant = Restaurant.find_or_create_by(name: params[:restaurant], city: city, cuisine: cuisine)

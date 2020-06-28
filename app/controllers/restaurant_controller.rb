@@ -25,10 +25,9 @@ class RestaurantController < ApplicationController
             redirect to "/restaurants/#{params[:id]}/edit"
             # put error here
         else
-          cuisine = Cuisine.find_or_create_by(name: params[:cuisine])
           city = City.find_or_create_by(name: params[:city])
           restaurant = Restaurant.find_by_id(params[:id])
-            if restaurant.update(name: params[:name], city: city, cuisine: cuisine)
+            if restaurant.update(name: params[:name], city: city)
               redirect to "/restaurants/#{restaurant.id}"
             else
               redirect to "/restaurants/#{restaurant.id}/edit"
