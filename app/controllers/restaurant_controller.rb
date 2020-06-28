@@ -68,6 +68,7 @@ end
         verify_logged_in
             restaurant = Restaurant.find(params[:id])
               restaurant.delete
+              redirect to '/restaurants'
 
             # put some kind of check for mad deleting
     end

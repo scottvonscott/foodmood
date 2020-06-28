@@ -68,6 +68,12 @@ patch '/reviews/:id' do
           end
       end
 
+get '/reviews/:id/delete_confirm' do
+  verify_logged_in
+  @review = Review.find(params[:id])
+  erb :'reviews/delete_review'
+end
+
 delete '/reviews/:id/delete' do
     verify_logged_in
         review = Review.find(params[:id])

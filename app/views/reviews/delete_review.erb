@@ -1,0 +1,9 @@
+<h1> Delete "<%=@review.title%>"?</h1><br>
+<h2></h2>
+<h4> Are you sure?</h4><br>
+<h4> <form method="post" action="/reviews/<%=@review.id%>/delete">
+<input id="hidden" type="hidden" name="_method" value="DELETE">
+<input type="submit" value="Delete Review">
+</form> </h4><br>
+<h2></h2>
+<h4><a href="/reviews">Back to Restaurants</a> - <a href="/home">Back to Home</a></h4>

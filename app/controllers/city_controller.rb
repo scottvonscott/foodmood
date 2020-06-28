@@ -6,6 +6,8 @@ class CityController < ApplicationController
         erb :'cities/index'
     end
 
+
+# OPTIONAL FUNCTIONALITY
     # get '/cities/new' do
     #     verify_logged_in
     #     erb :'cities/new'
@@ -41,10 +43,17 @@ get '/cities/:id/edit' do
 # Edit permission?
 end
 
+get '/cities/:id/delete_confirm' do
+    verify_logged_in
+    @city = City.find(params[:id])
+    erb :'cities/delete_city'
+  end
+
 delete '/cities/:id/delete' do
     verify_logged_in
         city = City.find(params[:id])
           city.delete
+          redirect to '/cities'
 
         # put some kind of check for mad deleting
 end
