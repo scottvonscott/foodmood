@@ -9,13 +9,13 @@ end
 
 post '/reviews' do
     verify_logged_in
-
       if params[:description] == ""
         # put error here
         redirect to "/reviews/new"
       else
+        cuisine = Cuisine.find_by(name: params[:cuisine])
         city = City.find_or_create_by(name: params[:city])
-        restaurant = Restaurant.find_or_create_by(name: params[:restaurant], city: city)
+        restaurant = Restaurant.find_or_create_by(name: params[:restaurant], city: city, cuisine: cuisine)
         review = current_user.reviews.build(title: params[:title], description: params[:description], restaurant: restaurant)
         if review.save
           redirect to "/reviews/#{review.id}"
@@ -27,7 +27,6 @@ post '/reviews' do
   end
 
 get '/reviews/new' do
-  binding.pry
     verify_logged_in
     @cuisines = Cuisine.all
         erb :'reviews/new'

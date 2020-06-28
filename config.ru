@@ -9,4 +9,5 @@ use UserController
 use ReviewController
 use RestaurantController
 use CityController
+use CuisineController
 run ApplicationController
