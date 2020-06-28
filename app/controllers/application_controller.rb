@@ -7,7 +7,6 @@ class ApplicationController < Sinatra::Base
     enable :sessions
     set :session_secret, ENV['SUPER_DUPER_SECRET_SESSION']
     set :show_exceptions, true
-    # change at the end to false
   end
 
   get "/" do

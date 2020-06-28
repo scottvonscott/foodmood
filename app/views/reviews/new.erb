@@ -3,7 +3,7 @@
 
 <form method="post" action="/reviews">
 <h3>Restaurant:</h3>
-<input type="text" name="restaurant" id="restaurant"><br>
+<input type="text" name="restaurant" id="restaurant" required><br>
 
 <h3>Restaurant City:</h3>
 <input type="text" name="city" id="city" required><br>
@@ -12,10 +12,10 @@
 <% @cuisines.each do |cuisine| %>
 <input type="radio" name="cuisine" value="<%= cuisine.name %>"></input>
 <label for="cuisine"><%= cuisine.name %></label><br>
-<% end %><br>
+<% end %> required<br>
 
 <h3>Title:</h3>
-<input type="text" name="title" id="title"><br>
+<input type="text" name="title" id="title"required><br>
 
 <h3>Body:</h3>
 <textarea name="description" rows="10" cols="80" id="description"></textarea><br>

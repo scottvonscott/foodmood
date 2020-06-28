@@ -22,7 +22,7 @@
 
       <footer class="branding">
       <% if logged_in?%>
-      Logged in as <%=current_user.username %><br>
+      Logged in as <%=current_user.username.upcase %><br>
       <a href="/logout">Log Out</a></p>
       <% else %>
       <% end %>

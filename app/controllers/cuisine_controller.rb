@@ -8,8 +8,8 @@ class CuisineController < ApplicationController
     
     get '/cuisines/:id' do
         verify_logged_in
-            @cuisine = Cuisine.find(params[:id])
-            erb :'cuisines/show_cuisine'
+        @cuisine = Cuisine.find(params[:id])
+        erb :'cuisines/show_cuisine'
     end
     
 
