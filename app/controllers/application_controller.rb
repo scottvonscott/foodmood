@@ -6,7 +6,7 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     enable :sessions
     set :session_secret, ENV['SUPER_DUPER_SECRET_SESSION']
-    set :show_exceptions, false
+    set :show_exceptions, true
     # change at the end to false
   end
 
@@ -30,6 +30,13 @@ class ApplicationController < Sinatra::Base
 
     def current_user
       @current_user ||= User.find_by_id(session[:user_id])
+    end
+
+    def admin?
+      if current_user.admin
+      else
+        redirect to 'users/user_error'
+      end
     end
 
     def verify_logged_in

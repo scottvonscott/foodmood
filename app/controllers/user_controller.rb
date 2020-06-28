@@ -5,7 +5,7 @@ class UserController < ApplicationController
     end
 
     post '/signup' do
-        user = User.create(params[:user])
+        user = User.create(username: params[:user][:username], password: params[:user][:password], admin: false)
         if user.save
             session[:user_id] = user.id
             redirect '/home'
@@ -28,6 +28,10 @@ class UserController < ApplicationController
         erb :'users/index'
     end
 
+    get '/users/user_error' do
+        verify_logged_in
+        erb :'users/error'
+    end
 
     post '/login' do
         user = User.find_by_username(params[:user][:username])

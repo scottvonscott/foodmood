@@ -1,3 +1,5 @@
+#  ruby encoding: utf-8
+
 Cuisine.create(name: 'Italian')
 Cuisine.create(name: 'American')
 Cuisine.create(name: 'Breakfast')
@@ -15,3 +17,4 @@ Cuisine.create(name: 'Mediterranean')
 Cuisine.create(name: 'Dessert')
 Cuisine.create(name: 'Coffee')
 Cuisine.create(name: 'Pizza')
+User.create(username: 'scott', password: ENV['ADMIN_PSW'], admin: true)

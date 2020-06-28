@@ -15,13 +15,31 @@ end
 
 get '/cities/:id/edit' do
     verify_logged_in
+    admin?
         @city = City.find(params[:id])
         erb :'cities/edit_city'
 # Edit permission?
 end
 
+patch '/cities/:id' do
+    verify_logged_in
+        if params[:name] == ""
+            redirect to "/cities/#{params[:id]}/edit"
+            # put error here
+          else
+            cities = City.find_by_id(params[:id])
+              if cities.update(name: params[:name])
+                redirect to "/cities/#{cities.id}"
+              else
+                redirect to "/cities/#{cities.id}/edit"
+                # put error here
+              end
+          end
+      end
+
 get '/cities/:id/delete_confirm' do
     verify_logged_in
+    admin?
     @city = City.find(params[:id])
     erb :'cities/delete_city'
   end

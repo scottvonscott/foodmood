@@ -26,11 +26,6 @@ post '/reviews' do
       end
   end
 
-  get '/reviews/error' do
-    verify_logged_in
-    erb :'reviews/error'
-  end
-
 get '/reviews/new' do
     verify_logged_in
     @cuisines = Cuisine.all.sort_by do |cuisine|
@@ -51,7 +46,7 @@ get '/reviews/:id/edit' do
       if @review && @review.user == current_user
         erb :'reviews/edit_review'
       else
-        redirect to '/reviews/error'
+        redirect to '/users/user_error'
       end
 end
 
@@ -79,17 +74,18 @@ patch '/reviews/:id' do
 get '/reviews/:id/delete_confirm' do
   verify_logged_in
   @review = Review.find(params[:id])
-  erb :'reviews/delete_review'
+    if @review && @review.user == current_user
+      erb :'reviews/delete_review'
+    else
+      redirect to '/users/user_error'
+    end
 end
 
 delete '/reviews/:id/delete' do
     verify_logged_in
         review = Review.find(params[:id])
-        if review && review.user == current_user
           review.delete
-        end
         redirect to '/reviews'
-        # put error here
 end
 
 end

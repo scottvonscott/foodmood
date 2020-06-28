@@ -14,6 +14,7 @@ end
 
 get '/restaurants/:id/edit' do
     verify_logged_in
+    admin?
     @restaurant = Restaurant.find(params[:id])
     erb :'restaurants/edit_restaurant'
 end
@@ -26,11 +27,11 @@ patch '/restaurants/:id' do
           else
             cuisine = Cuisine.find_or_create_by(name: params[:cuisine])
             city = City.find_or_create_by(name: params[:city])
-            restaurants = Restaurant.find_by_id(params[:id])
-              if restaurants.update(name: params[:name], city: city, cuisine: cuisine)
-                redirect to "/restaurants/#{restaurants.id}"
+            restaurant = Restaurant.find_by_id(params[:id])
+              if restaurant.update(name: params[:name], city: city, cuisine: cuisine)
+                redirect to "/restaurants/#{restaurant.id}"
               else
-                redirect to "/restaurants/#{restaurants.id}/edit"
+                redirect to "/restaurants/#{restaurant.id}/edit"
                 # put error here
               end
           end
@@ -38,6 +39,7 @@ patch '/restaurants/:id' do
       
 get '/restaurants/:id/delete_confirm' do
     verify_logged_in
+    admin?
     @restaurant = Restaurant.find(params[:id])
     erb :'restaurants/delete_restaurant'
 end
