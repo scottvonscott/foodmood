@@ -6,29 +6,6 @@ get '/restaurants' do
     erb :'restaurants/index'
 end
 
-post '/restaurants' do
-    verify_logged_in
-    if params[:name] == ""
-        # put error here
-        redirect to "/restaurants/new"
-    else
-        city = City.find_or_create_by(name: params[:city])
-        restaurant = Restaurant.create(name: params[:name], city: city)
-        if restaurant.save
-            redirect to "/restaurants/#{restaurant.id}"
-        else
-            # put error here
-            redirect to "/restaurants/new"
-        end
-    end
-end
-
-
-get '/restaurants/new' do
-    verify_logged_in
-    erb :'restaurants/new'
-end
-
 get '/restaurants/:id' do
     verify_logged_in
         @restaurant = Restaurant.find(params[:id])
