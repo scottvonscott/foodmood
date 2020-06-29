@@ -9,7 +9,7 @@
     No restuarants have been added.
   <% else %>
       <% @cuisine.restaurants.each do |restaurant| %>
-        <a href =/restaurants/<%=restaurant.id%>><%= restaurant.name %></a>
+        <a href =/restaurants/<%=restaurant.id%>><%= restaurant.name %></a><br>
         <% end %>
   <% end %>
   
