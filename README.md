@@ -26,7 +26,7 @@ After checking out the repo, run bundle install to install dependencies. You can
 Run shotgun to start the server or Control + C to stop the server. 
 
 ## Contributing
-Bug reports and pull requests are welcome on GitHub at https://github.com/kelseyshiba/sinatra_project. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/scottvonscott/foodmood. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the code of conduct.
 
 
 ## Authors
