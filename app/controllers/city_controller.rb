@@ -24,14 +24,12 @@ class CityController < ApplicationController
       verify_logged_in
           if params[:name] == ""
               redirect to "/cities/#{params[:id]}/edit"
-              # put error here
           else
             cities = City.find_by_id(params[:id])
               if cities.update(name: params[:name])
                 redirect to "/cities/#{cities.id}"
               else
                 redirect to "/cities/#{cities.id}/edit"
-                # put error here
               end
           end
   end

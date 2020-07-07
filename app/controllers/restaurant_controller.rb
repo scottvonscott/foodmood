@@ -23,7 +23,6 @@ class RestaurantController < ApplicationController
     verify_logged_in
         if params[:name] == ""
             redirect to "/restaurants/#{params[:id]}/edit"
-            # put error here
         else
           city = City.find_or_create_by(name: params[:city])
           restaurant = Restaurant.find_by_id(params[:id])
@@ -31,7 +30,6 @@ class RestaurantController < ApplicationController
               redirect to "/restaurants/#{restaurant.id}"
             else
               redirect to "/restaurants/#{restaurant.id}/edit"
-              # put error here
             end
         end
   end
