@@ -5,7 +5,7 @@
 
 <% @restaurants.each do |restaurant| %>
     <div>
-    <h3><a href="/restaurants/<%=restaurant.id%>"><%= restaurant.name%></a></h3>
+    <h3><a href="/restaurants/<%=restaurant.id%>"><%= restaurant.name%> - <%= restaurant.city.name%></a></h3>
     </div>
     <% end %>
 

@@ -77,7 +77,7 @@ class ReviewController < ApplicationController
   delete '/reviews/:id/delete' do
       verify_logged_in
       review = Review.find(params[:id])
-      if @review && @review.user == current_user
+      if review && review.user == current_user
         review.delete
         redirect to '/reviews'
       else
