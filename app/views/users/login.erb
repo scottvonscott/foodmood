@@ -1,18 +1,22 @@
 <h1>Login Deets</h1><br>
 <h2></h2>
 
+<% if @username %> 
+<h4> Username or password is incorrect!</h4>
+<% end %>
 <% if logged_in?%>
 <h4>You're already logged in!</h4><br>
 
 <h4><a href="/home">Back to Home</a></h4>
-
 <% else %>
+
 <form method="post" action='/login'>
-    Username: <input type="text" name="user[username]" required><br>
+    Username: <input type="text" name="user[username]" value="<%= @username%>"required><br>
     Password: <input type="password" name="user[password" required><br>
     <input type="submit" value="login">
 </form>
  <% end%>
+
 <br>
  <h2></h2>
 
