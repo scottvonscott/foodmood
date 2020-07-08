@@ -22,6 +22,7 @@ class CityController < ApplicationController
 
   patch '/cities/:id' do
       verify_logged_in
+      admin?
           if params[:name] == ""
               redirect to "/cities/#{params[:id]}/edit"
           else
@@ -43,6 +44,7 @@ class CityController < ApplicationController
 
   delete '/cities/:id/delete' do
       verify_logged_in
+      admin?
       city = City.find(params[:id])
       city.delete
       redirect to '/cities'

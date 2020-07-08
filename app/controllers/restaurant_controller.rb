@@ -21,6 +21,7 @@ class RestaurantController < ApplicationController
 
   patch '/restaurants/:id' do
     verify_logged_in
+    admin?
         if params[:name] == ""
             redirect to "/restaurants/#{params[:id]}/edit"
         else
@@ -43,6 +44,7 @@ class RestaurantController < ApplicationController
 
   delete '/restaurants/:id/delete' do
     verify_logged_in
+    admin?
     restaurant = Restaurant.find(params[:id])
     restaurant.delete
     redirect to '/restaurants'

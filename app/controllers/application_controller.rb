@@ -32,15 +32,13 @@ class ApplicationController < Sinatra::Base
     end
 
     def admin?
-      if current_user.admin
-      else
+      unless current_user.admin
         redirect to 'users/user_error'
       end
     end
 
     def verify_logged_in
-      if logged_in?
-      else
+      unless logged_in?
         # put error here
           redirect to "/login"
       end

@@ -26,11 +26,8 @@ class ReviewController < ApplicationController
 
   get '/reviews/new' do
       verify_logged_in
-      @cuisines = Cuisine.all.sort_by do |cuisine|
-        cuisine.name
-      end
-      
-          erb :'reviews/new'
+      @cuisines = Cuisine.all_sorted
+      erb :'reviews/new'
   end
 
   get '/reviews/:id' do
@@ -80,8 +77,12 @@ class ReviewController < ApplicationController
   delete '/reviews/:id/delete' do
       verify_logged_in
       review = Review.find(params[:id])
-      review.delete
-      redirect to '/reviews'
+      if @review && @review.user == current_user
+        review.delete
+        redirect to '/reviews'
+      else
+        redirect to '/users/user_error'
+      end
   end
 
 end
