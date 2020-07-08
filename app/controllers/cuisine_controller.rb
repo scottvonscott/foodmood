@@ -2,7 +2,7 @@ class CuisineController < ApplicationController
 
     get '/cuisines' do
         verify_logged_in
-        @cuisines = Cuisine.all
+        @cuisines = Cuisine.all_sorted
         erb :'cuisines/index'
     end
     
